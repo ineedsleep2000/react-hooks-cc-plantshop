@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function NewPlantForm() {
+function NewPlantForm({ plants, setPlants }) {
   const [formData, setFormData] = useState({
     name: "",
     image: "",
@@ -12,10 +12,12 @@ function NewPlantForm() {
     fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "Application/JSON",
       },
       body: JSON.stringify(formData),
-    });
+    })
+      .then((response) => response.json())
+      .then((data) => setPlants([...plants, data]));
   }
 
   function handleChange(event) {

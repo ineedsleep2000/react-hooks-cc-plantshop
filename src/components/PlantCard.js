@@ -13,7 +13,7 @@ function PlantCard({ plant, onDelete }) {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then(() => onDelete(id));
+      .then((data) => onDelete([id]));
   };
 
   return (
@@ -25,7 +25,7 @@ function PlantCard({ plant, onDelete }) {
         onClick={handleToggleInStock}
         className={toggleInStock ? "primary" : ""}
       >
-        {toggleInStock ? "In Stock" : "Sold Out"}
+        {toggleInStock ? "In Stock" : "Out of Stock"}
       </button>
       <button onClick={handleDelete}> Delete</button>
     </li>
