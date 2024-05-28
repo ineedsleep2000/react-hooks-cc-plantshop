@@ -33,7 +33,7 @@ function PlantPage() {
       <PlantList
         plants={plants}
         filteredList={filteredList}
-        onDeletePlant={handleDelete}
+        onDelete={handleDelete}
       />
     </main>
   );
